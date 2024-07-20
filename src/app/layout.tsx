@@ -1,7 +1,10 @@
-import type { Metadata } from "next";
 import localFont from "next/font/local";
+import type { Metadata } from "next";
 
 import "./globals.css";
+import "./globals-pattern.css";
+
+import { Navbar } from "@/components/navigation/Navbar";
 
 export const metadata: Metadata = {
   title: "Jiseeeh",
@@ -50,7 +53,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={satoshi.className}>{children}</body>
+      <body className={`${satoshi.className} bg-texture`}>
+        <Navbar />
+        <main>{children}</main>
+      </body>
     </html>
   );
 }
