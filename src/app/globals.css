@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  @apply scroll-smooth;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -11,8 +15,6 @@
     @apply max-w-screen-xl mx-auto;
   }
 }
-
-
 
 /* if i feel like it... */
 /* ::-webkit-scrollbar {
