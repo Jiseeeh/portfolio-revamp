@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 import { FaAngleRight } from "react-icons/fa6";
 
 enum Sections {
-  ABOUT = "#about",
-  PROJECTS = "#projects",
-  EDUCATION = "#education",
-  EXPERIENCE = "#experience",
-  STACK = "#stack",
-  CONTACT = "#contact",
+  ABOUT = "about",
+  PROJECTS = "projects",
+  EDUCATION = "education",
+  EXPERIENCE = "experience",
+  STACK = "stack",
+  CONTACT = "contact",
 }
 
 interface NavbarProps {}
@@ -32,6 +32,8 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            if (!entry.target.id) return;
+
             console.log(`Intersecting: ${entry.target.id}`);
 
             setActivePath(entry.target.id as Sections);
