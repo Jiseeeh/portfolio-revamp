@@ -25,6 +25,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
     { section: Sections.STACK, label: "Stack" },
     { section: Sections.CONTACT, label: "Contact" },
   ];
+  const [isAtTop, setIsAtTop] = useState(true);
 
   // ? Intersection observer for active path
   useEffect(() => {
@@ -50,6 +51,23 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
     document.querySelectorAll("section").forEach((section) => {
       observer.observe(section);
     });
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (window.scrollY === 0) {
+        setIsAtTop(true);
+        return;
+      }
+
+      setIsAtTop(false);
+    };
+
+    window.addEventListener("scroll", onScroll);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   // ? Sidebar effect disabler
@@ -80,7 +98,11 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
   };
 
   return (
-    <nav className="p-4 flex items-center justify-between handle-max-w">
+    <nav
+      className={`p-4 flex items-center justify-between sticky top-0 transition-shadow duration-500 ${
+        !isAtTop ? "shadow-md p-2" : ""
+      } handle-max-w`}
+    >
       <h1 className="font-black text-3xl">jiseeeh.</h1>
       <aside
         className={`p-4 fixed inset-0 bg-light-black text-white h-full w-8/12 transition-transform duration-500 md:hidden ${
@@ -94,7 +116,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
               className="w-full group transition-all duration-500"
               key={el.label}
             >
-              <a href={el.section}>{el.label}</a>
+              <a href={`#${el.section}`}>{el.label}</a>
               {activePath === el.section ? (
                 <span className="block max-w-full h-0.5 bg-white"></span>
               ) : (
@@ -117,7 +139,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
               className="flex flex-col w-full group transition-all duration-500"
               key={el.label}
             >
-              <a href={el.section}>{el.label}</a>
+              <a href={`#${el.section}`}>{el.label}</a>
               {activePath === el.section ? (
                 <span className="block max-w-full h-0.5 bg-light-black"></span>
               ) : (
