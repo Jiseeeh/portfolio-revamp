@@ -51,9 +51,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const patterns = [
+    "bg-texture",
+    "bg-topography",
+    "bg-skull",
+    "bg-diamond",
+    "bg-rain",
+    "bg-circuit",
+  ];
+  const pattern = patterns[Math.floor(Math.random() * patterns.length)];
   return (
     <html lang="en">
-      <body className={`${satoshi.className} bg-texture`}>
+      <body className={`${satoshi.className} ${pattern}`}>
         <Navbar />
         <main>{children}</main>
       </body>
