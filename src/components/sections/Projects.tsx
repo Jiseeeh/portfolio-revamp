@@ -1,12 +1,57 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+
 import { SectionIntro } from "./SectionIntro";
+import { ProjectSection } from "./ProjectSection";
+import { Project } from "@/models/Project";
 
-interface ProjectsProps {}
+interface ProjectsContainerProps {}
 
-const Projects: React.FC<ProjectsProps> = ({}) => {
+const Projects: React.FC<ProjectsContainerProps> = ({}) => {
   const scrollContainer = useRef(null);
+  const projects: Project[] = [
+    new Project({
+      id: 0,
+      date: "February 2024 - Present",
+      description: (
+        <>
+          My capstone project, a note-taking app that incorporates AI to suggest
+          the best learning method for each note and provides users with
+          progress analytics to help them see what they need to improve.
+        </>
+      ),
+      imageAlt: "Image of umaru-chan",
+      imageFileName: "under_construction_umaru.webp",
+      isUnderDevelopment: true,
+      projectGithubLink: "https://github.com/Jiseeeh/u-do-note",
+      projectTags: [],
+      title: "u do note",
+      source:
+        "https://thestickyseat.tumblr.com/post/130082806054/himouto-umaru-chan-review-a-literal-moeblob",
+    }),
+    new Project({
+      id: 1,
+      date: "1 year ago",
+      description: (
+        <>
+          Yet Another Platformer Game that{" "}
+          <span className="link">
+            <a href="">Lue</a>
+          </span>{" "}
+          and I created in our free time to practice using Godot. It was a fun
+          and exciting experience. We used some free assets, as well as
+          custom-made assets created by Lue.
+        </>
+      ),
+      imageAlt: "Image of our platformer game",
+      imageFileName: "yapg.webp",
+      isUnderDevelopment: false,
+      projectGithubLink: "https://github.com/Jiseeeh/yapg",
+      projectTags: ["Godot", "GDScript"],
+      title: "YAPG",
+    }),
+  ];
 
   useEffect(() => {
     const modifyScroll = (e: WheelEvent) => {
@@ -94,15 +139,9 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
         ref={scrollContainer}
         className="min-h-screen flex overflow-x-auto snap-x snap-mandatory md:snap-none md:snap-normal"
       >
-        <section className="min-w-full min-h-full snap-center bg-red-300 grid place-content-center">
-          123
-        </section>
-        <section className="min-w-full min-h-full snap-center bg-green-300 grid place-content-center">
-          345
-        </section>
-        <section className="min-w-full min-h-full snap-center bg-yellow-300 grid place-content-center">
-          567
-        </section>
+        {projects.map((project) => (
+          <ProjectSection key={project.id} {...project} />
+        ))}
       </section>
     </section>
   );
