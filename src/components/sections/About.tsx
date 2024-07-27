@@ -49,7 +49,7 @@ const About: React.FC<AboutProps> = ({}) => {
               <a
                 href="https://www.instagram.com/prettyboimaks/"
                 target="_"
-                className="text-teal"
+                className="link"
               >
                 Maki
               </a>
