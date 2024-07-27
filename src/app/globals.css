@@ -14,6 +14,18 @@ html {
   .handle-max-w {
     @apply max-w-screen-xl mx-auto;
   }
+
+  .project-section {
+    @apply min-w-full min-h-full snap-center p-4 mt-24;
+  }
+
+  .link {
+    @apply text-teal font-black;
+  }
+
+  .hover-translate-up {
+    @apply hover:-translate-y-1 transition-transform duration-75;
+  }
 }
 
 /* if i feel like it... */
