@@ -99,8 +99,8 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
 
   return (
     <nav
-      className={`p-4 flex items-center justify-between sticky top-0 transition-shadow duration-500 ${
-        !isAtTop ? "shadow-md p-2" : ""
+      className={`p-4 z-10 flex items-center justify-between sticky top-0 transition-shadow duration-500 ${
+        !isAtTop ? "shadow-md xl:shadow-none" : ""
       } handle-max-w`}
     >
       <h1 className="font-black text-3xl">jiseeeh.</h1>
