@@ -1,4 +1,4 @@
-export class Project {
+export class ProjectModel {
   id: number;
   date: string;
   description: JSX.Element;
@@ -21,7 +21,7 @@ export class Project {
     projectTags,
     title,
     source,
-  }: Project) {
+  }: ProjectModel) {
     this.id = id;
     this.date = date;
     this.description = description;

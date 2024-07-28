@@ -9,9 +9,9 @@ const mogra = Mogra({
   subsets: ["latin"],
 });
 
-interface AboutProps {}
+interface AboutSectionProps {}
 
-const About: React.FC<AboutProps> = ({}) => {
+const AboutSection: React.FC<AboutSectionProps> = ({}) => {
   return (
     <section
       id="about"
@@ -84,4 +84,4 @@ const About: React.FC<AboutProps> = ({}) => {
   );
 };
 
-export { About };
+export { AboutSection };

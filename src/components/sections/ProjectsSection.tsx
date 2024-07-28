@@ -3,15 +3,15 @@
 import { useEffect, useRef } from "react";
 
 import { SectionIntro } from "./SectionIntro";
-import { ProjectSection } from "@/components/ui/ProjectSection";
-import { Project } from "@/models/Project";
+import { Project } from "@/components/ui/Project";
+import { ProjectModel } from "@/models/ProjectModel";
 
-interface ProjectsContainerProps {}
+interface ProjectsSectionProps {}
 
-const Projects: React.FC<ProjectsContainerProps> = ({}) => {
+const ProjectsSection: React.FC<ProjectsSectionProps> = ({}) => {
   const scrollContainer = useRef(null);
-  const projects: Project[] = [
-    new Project({
+  const projects: ProjectModel[] = [
+    new ProjectModel({
       id: 0,
       date: "February 2024 - Present",
       description: (
@@ -30,7 +30,7 @@ const Projects: React.FC<ProjectsContainerProps> = ({}) => {
       source:
         "https://thestickyseat.tumblr.com/post/130082806054/himouto-umaru-chan-review-a-literal-moeblob",
     }),
-    new Project({
+    new ProjectModel({
       id: 1,
       date: "1 year ago",
       description: (
@@ -155,11 +155,11 @@ const Projects: React.FC<ProjectsContainerProps> = ({}) => {
         className="min-h-full flex overflow-x-hidden snap-x snap-mandatory md:snap-none md:snap-normal"
       >
         {projects.map((project) => (
-          <ProjectSection key={project.id} {...project} />
+          <Project key={project.id} {...project} />
         ))}
       </section>
     </section>
   );
 };
 
-export { Projects };
+export { ProjectsSection };

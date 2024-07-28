@@ -3,10 +3,10 @@
 import Image from "next/image";
 import { FaGithub } from "react-icons/fa6";
 
-import { Project } from "@/models/Project";
+import { ProjectModel } from "@/models/ProjectModel";
 import { Tag } from "@/components/ui/Tag";
 
-const ProjectSection: React.FC<Project> = ({
+const Project: React.FC<ProjectModel> = ({
   date,
   description,
   imageAlt,
@@ -70,4 +70,4 @@ const ProjectSection: React.FC<Project> = ({
   );
 };
 
-export { ProjectSection };
+export { Project };

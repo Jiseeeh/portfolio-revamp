@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-
 import { SectionIntro } from "./SectionIntro";
 import { Education } from "@/components/ui/Education";
 import { EducationModel } from "@/models/EducationModel";

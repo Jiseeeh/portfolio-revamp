@@ -1,12 +1,12 @@
-import { About } from "@/components/sections/About";
-import { EducationSection } from "@/components/sections/Education";
-import { Projects } from "@/components/sections/Projects";
+import { AboutSection } from "@/components/sections/AboutSection";
+import { EducationSection } from "@/components/sections/EducationSection";
+import { ProjectsSection } from "@/components/sections/ProjectsSection";
 
 export default function Home() {
   return (
     <>
-      <About />
-      <Projects />
+      <AboutSection />
+      <ProjectsSection />
       <EducationSection />
     </>
   );
