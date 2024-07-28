@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 
 import { SectionIntro } from "./SectionIntro";
-import { ProjectSection } from "./ProjectSection";
+import { ProjectSection } from "@/components/ui/ProjectSection";
 import { Project } from "@/models/Project";
 
 interface ProjectsContainerProps {}
@@ -37,7 +37,7 @@ const Projects: React.FC<ProjectsContainerProps> = ({}) => {
         <>
           Yet Another Platformer Game that{" "}
           <span className="link">
-            <a href="">Lue</a>
+            <a href="https://pixel-art-gallery.vercel.app/">Lue</a>
           </span>{" "}
           and I created in our free time to practice using Godot. It was a fun
           and exciting experience. We used some free assets, as well as
@@ -54,9 +54,25 @@ const Projects: React.FC<ProjectsContainerProps> = ({}) => {
   ];
 
   useEffect(() => {
-    const modifyScroll = (e: WheelEvent) => {
-      console.log(`scrollingY ${e.deltaY}\nscrollingX ${e.deltaX}`);
+    const modifyProjectScrolling = (e: WheelEvent) => {
+      // console.log(`scrollingY ${e.deltaY}\nscrollingX ${e.deltaX}`);
       const container = scrollContainer.current as unknown as HTMLElement;
+
+      if (e.deltaY > 0) {
+        // means scrolling down
+        // console.log({
+        //   scrollLeft: Math.round(container.scrollLeft),
+        //   scrollWidth: container.scrollWidth - container.offsetWidth,
+        // });
+        if (
+          Math.round(container.scrollLeft) !==
+          container.scrollWidth - container.offsetWidth
+        ) {
+          e.preventDefault();
+        }
+        container.scrollLeft += e.deltaY;
+        return;
+      }
 
       // only allow scrollX if the scrollContainer.scrollLeft = 0
       if (e.deltaY < 0) {
@@ -71,7 +87,7 @@ const Projects: React.FC<ProjectsContainerProps> = ({}) => {
         return;
       }
 
-      container.scrollLeft += e.deltaY;
+      // horiz scroll
     };
 
     const snapToCenter = () => {
@@ -102,21 +118,20 @@ const Projects: React.FC<ProjectsContainerProps> = ({}) => {
       });
     };
 
-    console.log("Effect");
-
     const observerCallBack = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          console.log(`Intersecting: ${entry.target.id}`);
+          console.log("Adding event listener");
 
-          document.addEventListener("wheel", modifyScroll, {
+          document.addEventListener("wheel", modifyProjectScrolling, {
             passive: false,
           });
           document.addEventListener("wheel", snapToCenter, {
             passive: true,
           });
         } else {
-          document.removeEventListener("wheel", modifyScroll);
+          console.log("Removing event listener");
+          document.removeEventListener("wheel", modifyProjectScrolling);
           document.removeEventListener("wheel", snapToCenter);
         }
       });
@@ -125,19 +140,19 @@ const Projects: React.FC<ProjectsContainerProps> = ({}) => {
     const observer = new IntersectionObserver(observerCallBack, {
       root: null,
       rootMargin: "0px",
-      threshold: 0.9,
+      threshold: 0.95,
     });
 
-    observer.observe(document.querySelector("#x-scroll") as HTMLElement);
+    observer.observe(document.querySelector("#projects") as HTMLElement);
   }, []);
 
   return (
-    <section id="projects" className="min-h-screen flex flex-col">
+    <section className="min-h-[80vh] flex flex-col">
       <SectionIntro sectionNumber="01" sectionTitle="Projects" />
       <section
-        id="x-scroll"
+        id="projects"
         ref={scrollContainer}
-        className="min-h-screen flex overflow-x-auto snap-x snap-mandatory md:snap-none md:snap-normal"
+        className="min-h-full flex overflow-x-hidden snap-x snap-mandatory md:snap-none md:snap-normal"
       >
         {projects.map((project) => (
           <ProjectSection key={project.id} {...project} />
