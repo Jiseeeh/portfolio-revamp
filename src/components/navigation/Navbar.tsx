@@ -35,7 +35,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
           if (entry.isIntersecting) {
             if (!entry.target.id) return;
 
-            console.log(`Intersecting: ${entry.target.id}`);
+            // console.log(`Intersecting: ${entry.target.id}`);
 
             setActivePath(entry.target.id as Sections);
           }
@@ -44,7 +44,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
       {
         root: null,
         rootMargin: "0px",
-        threshold: 0.5,
+        threshold: 0.4,
       }
     );
 
@@ -99,8 +99,8 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
 
   return (
     <nav
-      className={`p-4 z-10 flex items-center justify-between sticky top-0 transition-shadow duration-500 ${
-        !isAtTop ? "shadow-md xl:shadow-none" : ""
+      className={`p-4 z-10 flex items-center justify-between sticky top-0 transition-all duration-500 xl:bg-transparent ${
+        !isAtTop ? "shadow-md xl:shadow-none bg-[#e6e8f0]" : ""
       } handle-max-w`}
     >
       <h1 className="font-black text-3xl">jiseeeh.</h1>
