@@ -26,9 +26,9 @@ const ProjectSection: React.FC<Project> = ({
         <div className="flex flex-col space-y-2">
           <p className="text-xl md:text-2xl">{description}</p>
           <p className="font-black uppercase">{date}</p>
-          <div className="group relative">
+          <div className="group relative self-start w-full">
             <Image
-              className={`object-cover rounded-sm overflow-hidden ${
+              className={`object-cover max-h-96 rounded-sm ${
                 source &&
                 "group-hover:brightness-50 transition-all duration-500"
               }`}
