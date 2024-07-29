@@ -3,7 +3,14 @@
 @tailwind utilities;
 
 html {
-  @apply scroll-smooth;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  overflow-y: visible;
+  overflow-x: hidden;
+  position: relative;
 }
 
 @layer utilities {
@@ -16,7 +23,7 @@ html {
   }
 
   .project-section {
-    @apply min-w-full min-h-full snap-center p-4 mt-24;
+    @apply h-screen w-screen shrink-0 p-4 mt-24;
   }
 
   .link {
