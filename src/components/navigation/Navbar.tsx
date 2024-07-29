@@ -99,9 +99,9 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
 
   return (
     <nav
-      className={`p-4 z-10 flex items-center justify-between sticky top-0 transition-all duration-500 xl:bg-transparent ${
+      className={`p-4 z-10 flex items-center justify-between fixed w-full top-0 right-0 left-0 my-0 transition-all duration-500 xl:bg-transparent max-w-screen-xl mx-auto ${
         !isAtTop ? "shadow-md xl:shadow-none bg-[#e6e8f0]" : ""
-      } handle-max-w`}
+      }`}
     >
       <h1 className="font-black text-3xl">jiseeeh.</h1>
       <aside
