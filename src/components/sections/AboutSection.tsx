@@ -15,7 +15,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({}) => {
   return (
     <section
       id="about"
-      className="flex flex-col lg:flex-row-reverse handle-max-w"
+      className="flex flex-col lg:flex-row-reverse mt-24 handle-max-w"
     >
       <div
         className={`${mogra.className} flex flex-col justify-center items-center w-full space-y-2 p-4 lg:-space-y-12`}
@@ -43,7 +43,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({}) => {
             quality={100}
             unoptimized
           />
-          <div className="absolute top-40 -right-5 p-2 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
+          <div className="hidden md:block absolute top-40 -right-5 p-2 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
             <span className="text-light-black text-lg">
               Snapped by{" "}
               <a
