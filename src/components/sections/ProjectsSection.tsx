@@ -85,14 +85,16 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({}) => {
   );
 
   return (
-    <section className="">
+    <section>
       <SectionIntro sectionNumber="01" sectionTitle="Projects" />
       <section
         id="projects"
         ref={scrollContainer}
-        // ? extra padding top to account for the fixed navbar and the start of gsap scroll
+        // ? extra padding top to account for the start of gsap scroll
         // ? width must be based on the number of sections
-        className={`h-screen pt-24 lg:pt-0  w-[${projects.length}00vw] flex flex-nowrap`}
+        className={`h-full pt-16 xl:pt-0 w-[${
+          projects.length * 100
+        }vw] flex flex-nowrap`}
       >
         {projects.map((project) => (
           <Project key={project.id} {...project} />
