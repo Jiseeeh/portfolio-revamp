@@ -23,7 +23,7 @@ body {
   }
 
   .project-section {
-    @apply h-screen w-screen shrink-0 p-4 mt-24;
+    @apply h-fit w-fit mt-24 p-4 md:p-8 xl:h-screen xl:w-screen shrink-0;
   }
 
   .link {
