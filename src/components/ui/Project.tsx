@@ -19,16 +19,16 @@ const Project: React.FC<ProjectModel> = ({
 }) => {
   return (
     <section className="project-section">
-      <div className="h-full flex flex-col lg:flex-row lg:space-x-40 lg:justify-center lg:items-center handle-max-w">
-        <h4 className="uppercase font-black text-5xl lg:[writing-mode:vertical-lr] lg:rotate-180 lg:text-center lg:w-5/12 lg:text-8xl xl:w-2/12">
+      <div className=" h-full flex flex-col lg:flex-row lg:space-x-40 lg:justify-center lg:items-center handle-max-w">
+        <h4 className="uppercase font-black text-5xl lg:[writing-mode:vertical-lr] lg:rotate-180 lg:text-center lg:w-5/12 lg:text-7xl xl:text-8xl xl:w-2/12">
           {title}
         </h4>
         <div className="flex flex-col space-y-2">
-          <p className="text-xl md:text-2xl">{description}</p>
+          <p className="text-xl lg:text-2xl">{description}</p>
           <p className="font-black uppercase">{date}</p>
           <div className="group relative self-start w-full">
             <Image
-              className={`object-cover max-h-96 rounded-sm ${
+              className={`object-cover w-full max-h-72 xl:max-h-[25rem] rounded-sm ${
                 source &&
                 "group-hover:brightness-50 transition-all duration-500"
               }`}
