@@ -17,6 +17,7 @@ interface NavbarProps {}
 const Navbar: React.FC<NavbarProps> = ({}) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [activePath, setActivePath] = useState(Sections.ABOUT);
+  const [isNavVisible, setIsNavVisible] = useState(true);
   const links = [
     { section: Sections.ABOUT, label: "About" },
     { section: Sections.PROJECTS, label: "Projects" },
@@ -35,6 +36,9 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
           if (entry.isIntersecting) {
             if (!entry.target.id) return;
 
+            if (entry.target.id !== Sections.PROJECTS) setIsNavVisible(true);
+            else setIsNavVisible(false);
+
             // console.log(`Intersecting: ${entry.target.id}`);
 
             setActivePath(entry.target.id as Sections);
@@ -51,6 +55,10 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
     document.querySelectorAll("section").forEach((section) => {
       observer.observe(section);
     });
+
+    return () => {
+      observer.disconnect();
+    };
   }, []);
 
   useEffect(() => {
@@ -99,7 +107,9 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
 
   return (
     <nav
-      className={`p-4 z-10 flex items-center justify-between fixed w-full top-0 right-0 left-0 my-0 transition-all duration-500 xl:bg-transparent max-w-screen-xl mx-auto ${
+      className={`${
+        isNavVisible ? "block" : "hidden"
+      } p-4 z-10 flex items-center justify-between fixed w-full top-0 right-0 left-0 my-0 transition-all duration-500 xl:bg-transparent max-w-screen-xl mx-auto ${
         !isAtTop ? "shadow-md xl:shadow-none bg-[#e6e8f0]" : ""
       }`}
     >
