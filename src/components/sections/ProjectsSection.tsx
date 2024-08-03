@@ -85,7 +85,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({}) => {
   );
 
   return (
-    <section>
+    <>
       <SectionIntro sectionNumber="01" sectionTitle="Projects" />
       <section
         id="projects"
@@ -100,7 +100,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({}) => {
           <Project key={project.id} {...project} />
         ))}
       </section>
-    </section>
+    </>
   );
 };
 
