@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* debug */
+/* * {
+  background: rgb(0 0 200 / 0.1) !important;
+} */
+
 html {
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
