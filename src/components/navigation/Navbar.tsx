@@ -7,7 +7,7 @@ enum Sections {
   ABOUT = "about",
   PROJECTS = "projects",
   EDUCATION = "education",
-  EXPERIENCE = "experience",
+  // EXPERIENCE = "experience",
   STACK = "stack",
   CONTACT = "contact",
 }
@@ -22,7 +22,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
     { section: Sections.ABOUT, label: "About" },
     { section: Sections.PROJECTS, label: "Projects" },
     { section: Sections.EDUCATION, label: "Education" },
-    { section: Sections.EXPERIENCE, label: "Experience" },
+    // { section: Sections.EXPERIENCE, label: "Experience" },
     { section: Sections.STACK, label: "Stack" },
     { section: Sections.CONTACT, label: "Contact" },
   ];
