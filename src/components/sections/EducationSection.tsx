@@ -1,8 +1,14 @@
 "use client";
 
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import { SectionIntro } from "./SectionIntro";
 import { Education } from "@/components/ui/Education";
 import { EducationModel } from "@/models/EducationModel";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface EducationSectionProps {}
 
@@ -40,6 +46,50 @@ const EducationSection: React.FC<EducationSectionProps> = ({}) => {
         "https://commons.wikimedia.org/wiki/File:3349Almanza_Uno,_Las_Pi%C3%B1as_City_06.jpg",
     }),
   ];
+
+  useGSAP(() => {
+    const education = gsap.utils.toArray("#education > div") as HTMLElement[];
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#education",
+        start: () => {
+          const windowHeight = window.innerHeight;
+          const educationSectionHeight = (
+            document.querySelector("#education") as HTMLElement
+          ).offsetHeight;
+
+          const startOffset =
+            windowHeight > educationSectionHeight
+              ? "-96p center"
+              : "top center";
+          return startOffset;
+        },
+        end: () =>
+          "+=" +
+          (document.querySelector("#education") as HTMLElement).offsetHeight,
+        scrub: 1,
+        markers: true,
+      },
+    });
+
+    education.forEach((educ, i) => {
+      tl.fromTo(
+        educ,
+        {
+          y: 0,
+          x: i % 2 === 0 ? 100 : -100,
+          opacity: 0,
+        },
+        {
+          x: 0,
+          opacity: 1,
+        },
+        i * 0.2
+      );
+    });
+  });
+
   return (
     <section className="min-h-screen flex flex-col">
       <SectionIntro sectionNumber="02" sectionTitle="Education" />
