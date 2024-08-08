@@ -43,7 +43,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({}) => {
             quality={100}
             unoptimized
           />
-          <div className="hidden md:block absolute top-40 -right-5 p-2 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
+          <div className="hidden lg:block absolute top-40 -right-5 p-2 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
             <span className="text-light-black text-lg">
               Snapped by{" "}
               <a
