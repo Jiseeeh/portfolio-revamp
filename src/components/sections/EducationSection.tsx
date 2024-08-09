@@ -55,21 +55,20 @@ const EducationSection: React.FC<EducationSectionProps> = ({}) => {
       scrollTrigger: {
         trigger: "#education",
         start: () => {
-          const windowHeight = window.innerHeight;
-          const educationSectionHeight = (
+          const windowWidth = window.innerWidth;
+          const educationSectionWidth = (
             document.querySelector("#education") as HTMLElement
-          ).offsetHeight;
+          ).offsetWidth;
 
           const startOffset =
-            windowHeight > educationSectionHeight
-              ? "-96p center"
-              : "top center";
+            windowWidth <= 768 ? "-120p center" : "top center";
           return startOffset;
         },
         end: () =>
           "+=" +
           (document.querySelector("#education") as HTMLElement).offsetHeight,
         scrub: 1,
+        markers: true,
       },
     });
 
