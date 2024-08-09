@@ -2,6 +2,7 @@ import { AboutSection } from "@/components/sections/AboutSection";
 import { EducationSection } from "@/components/sections/EducationSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { ExperienceSection } from "@/components/sections/ExperienceSection";
+import { TechStackSection } from "@/components/sections/TechStackSection";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <ProjectsSection />
       <EducationSection />
       {/* <ExperienceSection /> */}
+      <TechStackSection />
     </>
   );
 }
