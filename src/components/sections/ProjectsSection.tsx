@@ -2,9 +2,8 @@
 
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 import { SectionIntro } from "./SectionIntro";
 import { Project } from "@/components/ui/Project";
@@ -16,7 +15,7 @@ interface ProjectsSectionProps {}
 
 const ProjectsSection: React.FC<ProjectsSectionProps> = ({}) => {
   const scrollContainer = useRef(null);
-  const projects: ProjectModel[] = [
+  const [projects] = useState<ProjectModel[]>([
     new ProjectModel({
       id: 0,
       date: "February 2024 - Present",
@@ -57,7 +56,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({}) => {
       projectTags: ["Godot", "GDScript"],
       title: "YAPG",
     }),
-  ];
+  ]);
 
   useGSAP(
     () => {

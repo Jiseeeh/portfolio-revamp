@@ -1,6 +1,7 @@
 "use client";
 
-import gsap from "gsap";
+import { gsap } from "gsap";
+import { useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -13,7 +14,7 @@ gsap.registerPlugin(ScrollTrigger);
 interface EducationSectionProps {}
 
 const EducationSection: React.FC<EducationSectionProps> = ({}) => {
-  const educationHistory: EducationModel[] = [
+  const [educationHistory] = useState<EducationModel[]>([
     new EducationModel({
       id: 0,
       schoolName: "CvSU Bacoor Campus",
@@ -45,7 +46,7 @@ const EducationSection: React.FC<EducationSectionProps> = ({}) => {
       imageSource:
         "https://commons.wikimedia.org/wiki/File:3349Almanza_Uno,_Las_Pi%C3%B1as_City_06.jpg",
     }),
-  ];
+  ]);
 
   useGSAP(() => {
     const education = gsap.utils.toArray("#education > div") as HTMLElement[];
