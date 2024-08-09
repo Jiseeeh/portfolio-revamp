@@ -8,7 +8,7 @@ enum Sections {
   PROJECTS = "projects",
   EDUCATION = "education",
   // EXPERIENCE = "experience",
-  STACK = "stack",
+  TECH_STACK = "tech-stack",
   CONTACT = "contact",
 }
 
@@ -23,7 +23,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
     { section: Sections.PROJECTS, label: "Projects" },
     { section: Sections.EDUCATION, label: "Education" },
     // { section: Sections.EXPERIENCE, label: "Experience" },
-    { section: Sections.STACK, label: "Stack" },
+    { section: Sections.TECH_STACK, label: "Stack" },
     { section: Sections.CONTACT, label: "Contact" },
   ];
   const [isAtTop, setIsAtTop] = useState(true);
