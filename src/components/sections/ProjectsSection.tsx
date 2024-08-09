@@ -66,7 +66,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({}) => {
         xPercent: -100 * (projectSections.length - 1),
         ease: "none",
         scrollTrigger: {
-          markers: true,
+          // markers: true,
           start: "100p top",
           trigger: scrollContainer.current,
           pin: true,

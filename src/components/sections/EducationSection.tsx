@@ -68,7 +68,7 @@ const EducationSection: React.FC<EducationSectionProps> = ({}) => {
           "+=" +
           (document.querySelector("#education") as HTMLElement).offsetHeight,
         scrub: 1,
-        markers: true,
+        // markers: true,
       },
     });
 
