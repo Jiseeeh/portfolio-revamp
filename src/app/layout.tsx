@@ -1,8 +1,14 @@
 import localFont from "next/font/local";
+import dynamic from "next/dynamic";
 import type { Metadata } from "next";
 
 import "./globals.css";
 import "./globals-pattern.css";
+import { PostHogProvider } from "./post-hog-provider";
+
+const PostHogView = dynamic(() => import("./post-hog-view"), {
+  ssr: false,
+});
 
 export const metadata: Metadata = {
   title: "Jiseeeh",
@@ -63,9 +69,12 @@ export default function RootLayout({
   const pattern = patterns[Math.floor(Math.random() * patterns.length)];
   return (
     <html lang="en">
-      <body className={`${satoshi.className} ${pattern}`}>
-        <main>{children}</main>
-      </body>
+      <PostHogProvider>
+        <body className={`${satoshi.className} ${pattern}`}>
+          <PostHogView />
+          <main>{children}</main>
+        </body>
+      </PostHogProvider>
     </html>
   );
 }
