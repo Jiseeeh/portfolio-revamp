@@ -19,10 +19,6 @@ body {
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-
   .handle-max-w {
     @apply max-w-screen-xl mx-auto;
   }
@@ -36,7 +32,7 @@ body {
   }
 
   .brand-container {
-    @apply flex flex-col gap-2 items-center w-fit;
+    @apply flex flex-col gap-2 items-center w-fit transition-transform duration-300 ease-in-out;
   }
 
   .brand {
