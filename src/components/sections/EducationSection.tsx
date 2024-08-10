@@ -1,15 +1,12 @@
 "use client";
 
-import { gsap } from "gsap";
 import { useState } from "react";
 import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { SectionIntro } from "./SectionIntro";
 import { Education } from "@/components/ui/Education";
 import { EducationModel } from "@/models/EducationModel";
-
-gsap.registerPlugin(ScrollTrigger);
+import { gsapLib } from "@/lib/gsap";
 
 interface EducationSectionProps {}
 
@@ -49,9 +46,11 @@ const EducationSection: React.FC<EducationSectionProps> = ({}) => {
   ]);
 
   useGSAP(() => {
-    const education = gsap.utils.toArray("#education > div") as HTMLElement[];
+    const education = gsapLib.utils.toArray(
+      "#education > div"
+    ) as HTMLElement[];
 
-    const tl = gsap.timeline({
+    const tl = gsapLib.timeline({
       scrollTrigger: {
         trigger: "#education",
         start: () => {

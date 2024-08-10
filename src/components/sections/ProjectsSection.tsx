@@ -1,15 +1,12 @@
 "use client";
 
-import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef, useState } from "react";
 
 import { SectionIntro } from "./SectionIntro";
 import { Project } from "@/components/ui/Project";
 import { ProjectModel } from "@/models/ProjectModel";
-
-gsap.registerPlugin(ScrollTrigger);
+import { gsapLib } from "@/lib/gsap";
 
 interface ProjectsSectionProps {}
 
@@ -60,9 +57,9 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({}) => {
 
   useGSAP(
     () => {
-      const projectSections = gsap.utils.toArray("#projects > section");
+      const projectSections = gsapLib.utils.toArray("#projects > section");
 
-      gsap.to(projectSections, {
+      gsapLib.to(projectSections, {
         xPercent: -100 * (projectSections.length - 1),
         ease: "none",
         scrollTrigger: {

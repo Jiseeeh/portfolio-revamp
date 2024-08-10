@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { FaAngleRight } from "react-icons/fa6";
+
+import { gsapLib } from "@/lib/gsap";
 
 enum Sections {
   ABOUT = "about",
@@ -13,8 +13,6 @@ enum Sections {
   TECH_STACK = "tech-stack",
   CONTACT = "contact",
 }
-
-gsap.registerPlugin(ScrollToPlugin);
 
 interface NavbarProps {}
 
@@ -112,13 +110,13 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
   const onLinkClick = (section: Sections) => {
     return () => {
       if (section === Sections.ABOUT) {
-        gsap.to(window, {
+        gsapLib.to(window, {
           duration: 2,
           scrollTo: 0,
           ease: "power2.out",
         });
       } else {
-        gsap.to(window, {
+        gsapLib.to(window, {
           duration: 2,
           scrollTo: `#${section}`,
           ease: "power2.out",

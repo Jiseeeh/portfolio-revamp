@@ -1,15 +1,12 @@
 "use client";
 
-import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef, useState } from "react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { SectionIntro } from "./SectionIntro";
 import { BrandModel } from "@/models/BrandModel";
 import { Brand } from "@/components/ui/Brand";
-
-gsap.registerPlugin(ScrollTrigger);
+import { gsapLib } from "@/lib/gsap";
 
 interface TechStackSectionProps {}
 
@@ -123,10 +120,10 @@ const TechStackSection: React.FC<TechStackSectionProps> = ({}) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    const brands = gsap.utils.toArray(".brand-container") as HTMLElement[];
+    const brands = gsapLib.utils.toArray(".brand-container") as HTMLElement[];
 
     brands.forEach((brand, i) => {
-      gsap.fromTo(
+      gsapLib.fromTo(
         brand,
         {
           opacity: 0,

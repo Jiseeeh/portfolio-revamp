@@ -1,20 +1,18 @@
 "use client";
 
-import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { SectionIntro } from "./SectionIntro";
+import { gsapLib } from "@/lib/gsap";
 
-gsap.registerPlugin(ScrollTrigger);
 
 interface ExperienceSectionProps {}
 
 const ExperienceSection: React.FC<ExperienceSectionProps> = ({}) => {
   useGSAP(() => {
-    const experiences = gsap.utils.toArray(".exp > div") as HTMLElement[];
+    const experiences = gsapLib.utils.toArray(".exp > div") as HTMLElement[];
 
-    const tl = gsap.timeline({
+    const tl = gsapLib.timeline({
       scrollTrigger: {
         trigger: "#experience",
         start: "96p bottom",

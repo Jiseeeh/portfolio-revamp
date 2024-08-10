@@ -1,19 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { SiGmail, SiLinkedin, SiGithub, SiInstagram } from "react-icons/si";
-import { SectionIntro } from "./SectionIntro";
 
-gsap.registerPlugin(ScrollTrigger);
+import { SectionIntro } from "./SectionIntro";
+import { gsapLib } from "@/lib/gsap";
 
 interface ContactSectionProps {}
 
 const ContactSection: React.FC<ContactSectionProps> = ({}) => {
   useGSAP(() => {
-    const timeline = gsap.timeline({
+    const timeline = gsapLib.timeline({
       scrollTrigger: {
         trigger: "#contact",
         start: "top 80%",
