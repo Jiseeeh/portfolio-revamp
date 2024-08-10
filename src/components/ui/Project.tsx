@@ -21,7 +21,7 @@ const Project: React.FC<ProjectModel> = ({
   return (
     <section className="project-section">
       <div className=" h-full flex flex-col lg:flex-row lg:space-x-40 lg:justify-center lg:items-center handle-max-w">
-        <h4 className="uppercase font-black text-5xl lg:[writing-mode:vertical-lr] lg:rotate-180 lg:text-center lg:w-5/12 lg:text-7xl xl:text-8xl xl:w-2/12">
+        <h4 className="uppercase font-black text-5xl lg:[writing-mode:vertical-lr] lg:rotate-180 lg:text-center lg:w-5/12 lg:text-6xl xl:text-7xl xl:w-2/12">
           {title}
         </h4>
         <div className="flex flex-col space-y-2">
