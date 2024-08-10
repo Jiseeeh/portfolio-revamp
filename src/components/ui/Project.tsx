@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import posthog from "posthog-js";
 import { FaGithub } from "react-icons/fa6";
 
 import { ProjectModel } from "@/models/ProjectModel";
@@ -50,7 +51,18 @@ const Project: React.FC<ProjectModel> = ({
           </div>
           {isUnderDevelopment ? (
             <p className="text-center text-2xl font-bold">
-              Currently under development!
+              Currently under{" "}
+              <a
+                href={projectGithubLink}
+                className="text-teal"
+                onClick={() => {
+                  posthog.capture("Clicked project github link", {
+                    project: title,
+                  });
+                }}
+              >
+                development
+              </a>
             </p>
           ) : (
             Array.isArray(projectTags) && (
@@ -58,7 +70,15 @@ const Project: React.FC<ProjectModel> = ({
                 {projectTags.map((tag) => {
                   return <Tag key={tag} content={tag} />;
                 })}
-                <a href={projectGithubLink} target="_">
+                <a
+                  href={projectGithubLink}
+                  target="_"
+                  onClick={() => {
+                    posthog.capture("Clicked project github link", {
+                      project: title,
+                    });
+                  }}
+                >
                   <FaGithub className="size-10 cursor-pointer hover-translate-up" />
                 </a>
               </div>

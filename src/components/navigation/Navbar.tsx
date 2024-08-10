@@ -1,5 +1,6 @@
 "use client";
 
+import posthog from "posthog-js";
 import { useEffect, useState } from "react";
 import { FaAngleRight } from "react-icons/fa6";
 
@@ -109,6 +110,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
 
   const onLinkClick = (section: Sections) => {
     return () => {
+      posthog.capture("navigated to", { property: section });
       if (section === Sections.ABOUT) {
         gsapLib.to(window, {
           duration: 2,

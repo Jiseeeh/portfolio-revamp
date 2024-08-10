@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import posthog from "posthog-js";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { Mogra } from "next/font/google";
 
@@ -41,6 +42,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({}) => {
             width={200}
             height={200}
             quality={100}
+            unoptimized
           />
           <div className="hidden lg:block absolute top-40 -right-5 p-2 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
             <span className="text-light-black text-lg">
@@ -66,14 +68,20 @@ const AboutSection: React.FC<AboutSectionProps> = ({}) => {
         <p className="lg:text-xl">
           My interest in tech began when I saw my cousin, who is now a software
           engineer, do seemingly magical things with computers. However, it
-          wasn't until 2021, when I saw a friend's website about our country,
-          that I really started to dive into self-learning and explore the
-          endless possibilities that technology has to offer. I am excited to
-          continue growing my knowledge and skills in the tech industry, and I
-          hope to one day make a positive impact through my work.
+          wasn&apos;t until 2021, when I saw a friend&apos;s website about our
+          country, that I really started to dive into self-learning and explore
+          the endless possibilities that technology has to offer. I am excited
+          to continue growing my knowledge and skills in the tech industry, and
+          I hope to one day make a positive impact through my work.
         </p>
         <button className="flex px-4 py-3 font-bold text-xl bg-teal transition-colors duration-200 hover:bg-[#009199] self-start gap-3 rounded-md items-center">
-          <a href="/CAMARA-JOHN_CARLO-N-RESUME-2024.pdf" target="_">
+          <a
+            href="/CAMARA-JOHN_CARLO-N-RESUME-2024.pdf"
+            target="_"
+            onClick={() => {
+              posthog.capture("Viewed Resume");
+            }}
+          >
             Resume
           </a>{" "}
           <FaExternalLinkAlt />

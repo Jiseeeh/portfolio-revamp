@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import posthog from "posthog-js";
 import { useGSAP } from "@gsap/react";
 import { SiGmail, SiLinkedin, SiGithub, SiInstagram } from "react-icons/si";
 
@@ -60,6 +61,14 @@ const ContactSection: React.FC<ContactSectionProps> = ({}) => {
       );
   });
 
+  const logContactClick = (contact: string) => {
+    return () => {
+      posthog.capture("Clicked contact link", {
+        contact,
+      });
+    };
+  };
+
   return (
     <>
       <SectionIntro sectionNumber="04" sectionTitle="Contact" />
@@ -68,7 +77,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({}) => {
         className="min-h-screen px-4 mt-24 pt-24 handle-max-w flex flex-col"
       >
         <h5 className="contact-title uppercase font-black mb-4 text-5xl lg:text-6xl xl:text-8xl">
-          let's connect
+          let&apos;s connect
         </h5>
         <div className="flex flex-col md:flex-row gap-3">
           <div className="flex flex-col">
@@ -83,10 +92,10 @@ const ContactSection: React.FC<ContactSectionProps> = ({}) => {
           <div className="flex flex-col space-y-5">
             <p className="contact-text text-xl">
               Feel free to contact me anytime! My socials and email are listed
-              below. Whether it's about work, a casual chat, or playing games,
-              I'm always open to new opportunities. I'm excited to connect with
-              new people, collaborate on interesting projects, and explore fresh
-              ideas.
+              below. Whether it&apos;s about work, a casual chat, or playing
+              games, I&apos;m always open to new opportunities. I&apos;m excited
+              to connect with new people, collaborate on interesting projects,
+              and explore fresh ideas.
             </p>
             <div className="flex flex-col space-y-3">
               <div className="flex items-center gap-2">
@@ -94,6 +103,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({}) => {
                 <a
                   className="contact-text font-medium xl:text-3xl"
                   href="mailto:johncarlo.camara1@gmail.com"
+                  onClick={logContactClick("email")}
                 >
                   johncarlo.camara1@gmail.com
                 </a>
@@ -104,6 +114,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({}) => {
                   className="contact-text font-medium xl:text-3xl"
                   href="https://linkedin.com/in/john-carlo-camara"
                   target="_"
+                  onClick={logContactClick("linkedin")}
                 >
                   linkedin.com/in/john-carlo-camara/
                 </a>
@@ -114,6 +125,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({}) => {
                   className="contact-text font-medium xl:text-3xl"
                   href="https://github.com/Jiseeeh"
                   target="_"
+                  onClick={logContactClick("github")}
                 >
                   github.com/Jiseeeh
                 </a>
@@ -124,6 +136,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({}) => {
                   className="contact-text font-medium xl:text-3xl"
                   href="https://instagram.com/jiseeehh/"
                   target="_"
+                  onClick={logContactClick("instagram")}
                 >
                   instagram.com/jiseeehh/
                 </a>
