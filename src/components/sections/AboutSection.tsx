@@ -27,7 +27,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({}) => {
         <Image
           className="size-50 rounded-full lg:hidden"
           priority
-          src="/images/me_bnw.jpg"
+          src="/images/me_bnw.webp"
           alt="Black and White image of John Carlo N. Camara"
           width={200}
           height={200}
@@ -36,12 +36,11 @@ const AboutSection: React.FC<AboutSectionProps> = ({}) => {
           <Image
             className="hidden h-full w-full lg:block"
             priority
-            src="/images/me_no_bg.png"
+            src="/images/me_no_bg.webp"
             alt="Image of John Carlo N. Camara wearing his uniform"
             width={200}
             height={200}
             quality={100}
-            unoptimized
           />
           <div className="hidden lg:block absolute top-40 -right-5 p-2 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
             <span className="text-light-black text-lg">
