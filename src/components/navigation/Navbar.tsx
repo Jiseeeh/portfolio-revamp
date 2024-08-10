@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { FaAngleRight } from "react-icons/fa6";
 
 enum Sections {
@@ -11,6 +13,8 @@ enum Sections {
   TECH_STACK = "tech-stack",
   CONTACT = "contact",
 }
+
+gsap.registerPlugin(ScrollToPlugin);
 
 interface NavbarProps {}
 
@@ -105,6 +109,25 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  const onLinkClick = (section: Sections) => {
+    return () => {
+      if (section === Sections.ABOUT) {
+        gsap.to(window, {
+          duration: 2,
+          scrollTo: 0,
+          ease: "power2.out",
+        });
+      } else {
+        gsap.to(window, {
+          duration: 2,
+          scrollTo: `#${section}`,
+          ease: "power2.out",
+        });
+      }
+      setIsSidebarOpen(false);
+    };
+  };
+
   return (
     <nav
       className={`${
@@ -123,10 +146,10 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
         <ul className="p-4 space-y-5">
           {links.map((el) => (
             <li
-              className="w-full group transition-all duration-500"
+              className="w-full cursor-pointer group transition-all duration-500"
               key={el.label}
             >
-              <a href={`#${el.section}`}>{el.label}</a>
+              <span onClick={onLinkClick(el.section)}>{el.label}</span>
               {activePath === el.section ? (
                 <span className="block max-w-full h-0.5 bg-white"></span>
               ) : (
@@ -146,10 +169,10 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
         <ul className="p-4 flex space-x-5">
           {links.map((el) => (
             <li
-              className="flex flex-col w-full group transition-all duration-500"
+              className="flex flex-col w-full cursor-pointer group transition-all duration-500"
               key={el.label}
             >
-              <a href={`#${el.section}`}>{el.label}</a>
+              <span onClick={onLinkClick(el.section)}>{el.label}</span>
               {activePath === el.section ? (
                 <span className="block max-w-full h-0.5 bg-light-black"></span>
               ) : (
