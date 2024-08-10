@@ -1,10 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import { useRef, useState } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { SectionIntro } from "./SectionIntro";
 import { BrandModel } from "@/models/BrandModel";
 import { Brand } from "@/components/ui/Brand";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface TechStackSectionProps {}
 
@@ -115,12 +120,40 @@ const TechStackSection: React.FC<TechStackSectionProps> = ({}) => {
       ),
     }),
   ]);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    const brands = gsap.utils.toArray(".brand-container") as HTMLElement[];
+
+    brands.forEach((brand, i) => {
+      gsap.fromTo(
+        brand,
+        {
+          opacity: 0,
+          y: 50,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          delay: i * 0.1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: brand,
+            start: "top 80%",
+            toggleActions: "play none none reset",
+          },
+        }
+      );
+    });
+  }, []);
 
   return (
     <>
       <SectionIntro sectionNumber="03" sectionTitle="Tech Stack" />
       <section
         id="tech-stack"
+        ref={containerRef}
         className="min-h-screen px-4 flex flex-col gap-4 mt-24 pt-24 handle-max-w"
       >
         <p className="text-2xl">
