@@ -4,8 +4,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./globals-pattern.css";
 
-import { Navbar } from "@/components/navigation/Navbar";
-
 export const metadata: Metadata = {
   title: "Jiseeeh",
   description: "Jiseeeh's personal website",
@@ -52,8 +50,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const patterns = [
-    "bg-texture",
     "bg-topography",
+    "bg-tictac",
+    "bg-leaf",
+    "bg-brick",
+    "bg-jigsaw",
     "bg-skull",
     "bg-diamond",
     "bg-rain",
@@ -63,7 +64,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${satoshi.className} ${pattern}`}>
-        <Navbar />
         <main>{children}</main>
       </body>
     </html>
