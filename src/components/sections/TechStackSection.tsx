@@ -154,8 +154,8 @@ const TechStackSection: React.FC<TechStackSectionProps> = ({}) => {
         className="min-h-screen px-4 flex flex-col gap-4 mt-24 pt-24 handle-max-w"
       >
         <p className="text-2xl">
-          Here are the tools / technologies I enjoy working with. I'm always
-          eager to expand my skill set and stay current with the latest
+          Here are the tools / technologies I enjoy working with. I&apos;m
+          always eager to expand my skill set and stay current with the latest
           technology trends.
         </p>
         <div className="grid gap-3 place-items-center grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
