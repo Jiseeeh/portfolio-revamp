@@ -53,6 +53,22 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({}) => {
       projectTags: ["Godot", "GDScript"],
       title: "YAPG",
     }),
+    new ProjectModel({
+      id: 2,
+      date: "1 year ago",
+      description: (
+        <>
+          A console application that scrapes the filler episodes of your
+          favorite anime series to improve your binge-watching experience.
+        </>
+      ),
+      imageAlt: "Screenshot of the filler hunter",
+      imageFileName: "fh.webp",
+      isUnderDevelopment: false,
+      projectGithubLink: "https://github.com/Jiseeeh/filler-hunter",
+      projectTags: ["Javascript", "Inquirer.js"],
+      title: "Filler Hunter",
+    }),
   ]);
 
   useGSAP(
