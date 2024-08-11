@@ -144,7 +144,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({}) => {
             </div>
           </div>
         </div>
-        <footer className="text-center mt-auto pt-4 text-gray-500">
+        <footer className="text-center text-sm mt-auto pt-4 text-gray-500">
           &copy; {new Date().getFullYear()} John Carlo Camara. All rights
           reserved.
         </footer>
