@@ -12,7 +12,7 @@ const PostHogView = dynamic(() => import("./post-hog-view"), {
 
 export const metadata: Metadata = {
   generator: "Next.js",
-  title: "Jiseeeh - Web Developer | Portfolio",
+  title: "Jiseeeh",
   description:
     "Welcome to Jiseeeh's personal website. Discover my web development projects, skills, and experience in web development.",
   applicationName: "Jiseeeh's Portfolio",
