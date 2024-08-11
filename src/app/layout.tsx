@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./globals-pattern.css";
 import { PostHogProvider } from "./post-hog-provider";
-import { PatternWrapper } from "./PatternWrapper";
+import { PatternWrapper } from "./pattern-wrapper";
 
 const PostHogView = dynamic(() => import("./post-hog-view"), {
   ssr: false,
