@@ -20,18 +20,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const patterns = [
-    "bg-topography",
-    "bg-tictac",
-    "bg-leaf",
-    "bg-brick",
-    "bg-jigsaw",
-    "bg-skull",
-    "bg-diamond",
-    "bg-rain",
-    "bg-circuit",
-  ];
-  const pattern = patterns[Math.floor(Math.random() * patterns.length)];
   return (
     <html lang="en">
       <PostHogProvider>
