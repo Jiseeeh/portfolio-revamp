@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@Jiseeeh",
     creator: "@Jiseeeh",
-    title: "Jiseeeh - Web Developer | Portfolio",
+    title: "Jiseeeh",
     description:
       "Explore Jiseeeh's personal website showcasing projects, skills, and experience in web development.",
     images: ["https://jiseeeh.codes/og.png"],
