@@ -1,10 +1,10 @@
-import localFont from "next/font/local";
 import dynamic from "next/dynamic";
 import type { Metadata } from "next";
 
 import "./globals.css";
 import "./globals-pattern.css";
 import { PostHogProvider } from "./post-hog-provider";
+import { PatternWrapper } from "./PatternWrapper";
 
 const PostHogView = dynamic(() => import("./post-hog-view"), {
   ssr: false,
@@ -14,41 +14,6 @@ export const metadata: Metadata = {
   title: "Jiseeeh",
   description: "Jiseeeh's personal website",
 };
-
-const satoshi = localFont({
-  src: [
-    {
-      path: "../../public/fonts/Satoshi-Regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/Satoshi-Italic.woff2",
-      weight: "400",
-      style: "italic",
-    },
-    {
-      path: "../../public/fonts/Satoshi-Medium.woff2",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/Satoshi-Bold.woff2",
-      weight: "700",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/Satoshi-Black.woff2",
-      weight: "900",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/Satoshi-BoldItalic.woff2",
-      weight: "700",
-      style: "italic",
-    },
-  ],
-});
 
 export default function RootLayout({
   children,
@@ -70,10 +35,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <PostHogProvider>
-        <body className={`${satoshi.className} ${pattern}`}>
+        <PatternWrapper>
           <PostHogView />
           <main>{children}</main>
-        </body>
+        </PatternWrapper>
       </PostHogProvider>
     </html>
   );
