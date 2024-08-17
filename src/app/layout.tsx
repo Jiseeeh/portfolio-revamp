@@ -17,12 +17,12 @@ export const metadata: Metadata = {
     "Welcome to Jiseeeh's personal website. Discover my web development projects, skills, and experience in web development.",
   applicationName: "Jiseeeh's Portfolio",
   keywords: [
+    "John Carlo Camara",
     "Jiseeeh",
     "Jiseeeh Portfolio",
     "Jiseeeh's Portfolio",
-    "John Carlo Camara",
   ],
-  authors: [{ name: "Jiseeeh" }],
+  authors: [{ name: "John Carlo Camara" }, { name: "Jiseeeh" }],
   creator: "Jiseeeh",
   openGraph: {
     title: "Jiseeeh",
