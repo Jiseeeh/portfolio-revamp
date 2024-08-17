@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 
 import "./globals.css";
@@ -74,6 +75,7 @@ export default function RootLayout({
         <PatternWrapper>
           <PostHogView />
           <main>{children}</main>
+          <SpeedInsights />
         </PatternWrapper>
       </PostHogProvider>
     </html>
