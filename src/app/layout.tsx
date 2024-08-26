@@ -41,9 +41,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-  alternates: {
-    canonical: "https://jiseeeh.codes",
-  },
   twitter: {
     card: "summary_large_image",
     site: "@Jiseeeh",
