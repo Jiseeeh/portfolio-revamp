@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 
+import React from "react";
 import { Navbar } from "@/components/navigation/Navbar";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { EducationSection } from "@/components/sections/EducationSection";
