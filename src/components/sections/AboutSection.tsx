@@ -62,7 +62,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({}) => {
         <h4 className="text-xl font-black lg:text-4xl">About me</h4>
         <p className="lg:text-xl">
           I go by the name <span className="text-teal font-bold">Jiseeeh</span>{" "}
-          on the internet. I am currently a 3rd year student taking BSIT in the
+          on the internet. I am currently a 4th year student taking BSIT in the
           Philippines.
         </p>
         <p className="lg:text-xl">
