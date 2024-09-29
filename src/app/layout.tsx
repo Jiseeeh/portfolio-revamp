@@ -13,10 +13,10 @@ const PostHogView = dynamic(() => import("./post-hog-view"), {
 
 export const metadata: Metadata = {
   generator: "Next.js",
-  title: "Jiseeeh",
+  title: "John Carlo Camara",
   description:
-    "Welcome to Jiseeeh's personal website. Discover my web development projects, skills, and experience in web development.",
-  applicationName: "Jiseeeh's Portfolio",
+    "Welcome to John Carlo Camara's personal website. Discover my web development projects, skills, and experience in web development.",
+  applicationName: "John Carlo Camara's Portfolio",
   keywords: [
     "John Carlo Camara",
     "Jiseeeh",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
       "Explore Jiseeeh's personal website showcasing projects, skills, and experience in web development.",
     url: "https://jiseeeh.codes",
     type: "website",
-    siteName: "Jiseeeh",
+    siteName: "John Carlo Camara",
     locale: "en_US",
     images: [
       {
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@Jiseeeh",
     creator: "@Jiseeeh",
-    title: "Jiseeeh",
+    title: "John Carlo Camara",
     description:
       "Explore Jiseeeh's personal website showcasing projects, skills, and experience in web development.",
     images: ["https://jiseeeh.codes/og.png"],
