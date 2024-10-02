@@ -27,7 +27,7 @@ const EducationSection: React.FC<EducationSectionProps> = ({}) => {
       schoolName: "National University Manila",
       date: "August 2021 - August 2022",
       description:
-        "It was fun being a student here. I met friends that I still have contact today. Also professors that are really good. I had to transfer because of financial problems as the school did not fix my scholarship leading to my tuition increase.",
+        "It was fun being a student here. I met friends that I still have contact today. Also professors that are really good, but I had to transfer because of financial problems.",
       imageFileName: "nu_m.webp",
       imageAlt: "Image of National University Manila",
       imageSource: "https://national-u.edu.ph/nu-manila/facilities/",
